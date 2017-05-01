@@ -1,0 +1,25 @@
+{
+  "name": "@celeri/body-parser",
+  "version": "1.0.0",
+  "description": "A request body parsing middleware for celeri",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/celeri-server/body-parser.git"
+  },
+  "keywords": [
+    "celeri",
+    "middleware",
+    "body",
+    "parser"
+  ],
+  "author": "James Brumond <james@jbrumond.me> (http://www.jbrumond.me)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/celeri-server/body-parser/issues"
+  },
+  "homepage": "https://github.com/celeri-server/body-parser#readme"
+}
