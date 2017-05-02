@@ -1,6 +1,8 @@
 
+import { BodyParserError } from 'parse-error';
+
 export const bodyParser = () => {
-	return ({ req, res }) => {
+	return ({ req }) => {
 		return new Promise((resolve, reject) => {
 			const chunks = [ ];
 			
@@ -12,15 +14,15 @@ export const bodyParser = () => {
 				const body = chunks.join('').trim();
 
 				if (! body) {
-					return resolve({ req, res });
+					return resolve();
 				}
 
 				try {
 					req.body = JSON.parse(body);
-					resolve({ req, res });
+					resolve();
 				}
 				catch (err) {
-					reject(err);
+					reject(new BodyParserError());
 				}
 			});
 		});
