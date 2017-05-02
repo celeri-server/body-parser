@@ -21,7 +21,7 @@ export const bodyParser = () => {
 				}
 				catch (err) {
 					reject(err);
-				};
+				}
 			});
 		});
 	};
