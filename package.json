@@ -2,9 +2,10 @@
   "name": "@celeri/body-parser",
   "version": "1.0.2",
   "description": "A request body parsing middleware for celeri",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir build",
+    "postinstall": "postinstall-build build"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,14 @@
     "url": "https://github.com/celeri-server/body-parser/issues"
   },
   "homepage": "https://github.com/celeri-server/body-parser#readme",
+  "homepage": "https://github.com/celeri-server/express-middleware#readme",
   "devDependencies": {
     "eslint": "^3.19.0",
-    "eslint-config-celeri": "^1.0.0"
+    "eslint-config-celeri": "^1.0.0",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1"
+  },
+  "dependencies": {
+    "postinstall-build": "^3.0.1"
   }
 }
