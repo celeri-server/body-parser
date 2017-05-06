@@ -1,5 +1,5 @@
 
-import { BodyParserError } from 'parse-error';
+import { BodyParserError } from './parse-error';
 
 export const bodyParser = () => {
 	return ({ req }) => {
