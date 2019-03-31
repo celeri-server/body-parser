@@ -6,6 +6,7 @@ import { MiddlewareInput } from '@celeri/http-server';
 import { parseSize } from './byte-size';
 import { Parser, jsonParser } from './parsers';
 
+export { BodyParserError } from './error';
 export { Parser, jsonParser, plainTextParser } from './parsers';
 
 interface Config {
