@@ -1,6 +1,6 @@
 {
   "name": "@celeri/body-parser",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A request body parsing middleware for celeri",
   "main": "build/index.js",
   "scripts": {
