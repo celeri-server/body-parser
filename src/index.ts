@@ -1,5 +1,4 @@
 
-import './extend-request';
 import { BodyParserError } from './error';
 import { MiddlewareFunction } from '@celeri/middleware-pipeline';
 import { MiddlewareInput } from '@celeri/http-server';
