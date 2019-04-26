@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/celeri-server/express-middleware#readme",
   "dependencies": {
-    "@celeri/http-server": "^2.0.2",
+    "@celeri/http-server": "^2.1.0",
     "@celeri/middleware-pipeline": "^2.0.2",
     "@celeri/router": "^2.0.1",
     "tslint": "^5.14.0",

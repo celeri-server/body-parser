@@ -26,7 +26,9 @@ const defaultConfig: Config = {
 	}
 };
 
-export const bodyParser = (config?: Config) : MiddlewareFunction<MiddlewareInput> => {
+type InputWithBody = MiddlewareInput<any, { body?: any; }>;
+
+export const bodyParser = (config?: Config) : MiddlewareFunction<InputWithBody> => {
 	const finalConfig = Object.assign({ }, defaultConfig, config || { });
 	const maxSize = parseSize(finalConfig.maxSize);
 	const parsers = finalConfig.parsers || { };
