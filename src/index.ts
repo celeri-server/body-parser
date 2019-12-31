@@ -3,10 +3,10 @@ import { BodyParserError } from './error';
 import { MiddlewareFunction } from '@celeri/middleware-pipeline';
 import { MiddlewareInput } from '@celeri/http-server';
 import { parseSize } from './byte-size';
-import { Parser, jsonParser } from './parsers';
+import { Parser, jsonParser, urlencodedParser, plainTextParser } from './parsers';
 
 export { BodyParserError } from './error';
-export { Parser, jsonParser, plainTextParser } from './parsers';
+export { Parser, jsonParser, urlencodedParser, plainTextParser } from './parsers';
 
 interface Config {
 	/** The max size allowed in the body. Defaults to '512kb'. */
@@ -21,7 +21,9 @@ interface Config {
 const defaultConfig: Config = {
 	maxSize: '512kb',
 	parsers: {
-		'application/json': jsonParser
+		'text/plain': plainTextParser,
+		'application/json': jsonParser,
+		'application/x-www-form-urlencoded': urlencodedParser
 	}
 };
 
@@ -34,7 +36,8 @@ export const bodyParser = (config?: Config) : MiddlewareFunction<InputWithBody> 
 
 	return ({ req }) => {
 		return new Promise((resolve, reject) => {
-			const contentType = (req.headers['content-type'] || '').toLowerCase();
+			const header = req.headers['content-type'] || '';
+			const contentType = header.toLowerCase().split(';')[0];
 			const parser: Parser = parsers[contentType] || parsers['*'];
 
 			if (! parser) {
